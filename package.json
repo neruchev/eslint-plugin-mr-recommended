@@ -1,0 +1,26 @@
+{
+  "name": "eslint-plugin-nk",
+  "version": "1.0.0",
+  "description": "Eslint plugin",
+  "main": "index.js",
+  "homepage": "https://github.com/neruchev/eslint-plugin-nk#readme",
+  "repository": "git@github.com:neruchev/eslint-plugin-nk.git",
+  "bugs": {
+    "url": "https://github.com/neruchev/eslint-plugin-nk/issues"
+  },
+  "author": "Kirill Neruchev <kirill@neruchev.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.16.1",
+    "@typescript-eslint/parser": "^7.16.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-css-modules": "^2.12.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-react": "^7.34.4",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-storybook": "^0.8.0"
+  },
+  "packageManager": "yarn@4.3.1"
+}
