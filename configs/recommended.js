@@ -8,7 +8,7 @@ module.exports = {
     "react",
     "react-hooks",
     "css-modules",
-    "nk",
+    "nka",
   ],
   extends: [
     "eslint:recommended",
@@ -59,7 +59,7 @@ module.exports = {
     ],
     "@typescript-eslint/no-unused-vars": "error",
     "arrow-body-style": ["error", "as-needed"],
-    "nk/no-index-imports": "error",
+    "nka/no-index-imports": "error",
     "jsx-a11y/anchor-is-valid": "off",
     "jsx-a11y/no-static-element-interactions": "error",
     "no-duplicate-imports": "error",
