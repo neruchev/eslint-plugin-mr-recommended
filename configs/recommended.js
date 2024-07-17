@@ -48,6 +48,7 @@ module.exports = {
       { selector: "enum", format: ["UPPER_CASE"] },
       { selector: "enumMember", format: ["UPPER_CASE"] },
     ],
+    "@typescript-eslint/no-floating-promises": "error",
     "@typescript-eslint/no-namespace": "off",
     "@typescript-eslint/no-unused-expressions": [
       "error",
@@ -58,6 +59,7 @@ module.exports = {
       },
     ],
     "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/switch-exhaustiveness-check": "warn",
     "arrow-body-style": ["error", "as-needed"],
     "nka/no-index-imports": "error",
     "jsx-a11y/anchor-is-valid": "off",
