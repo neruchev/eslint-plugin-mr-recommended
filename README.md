@@ -38,6 +38,37 @@ module.exports = {
 };
 ```
 
+### Configurable rules
+
+```diff
+module.exports = {
+  parserOptions: { project: './tsconfig.json' },
++ extends: ['plugin:nka/recommended'],
++ rules: {
++   'nka/no-full-import-of-libraries': ['error', ['antd', 'antd/lib']],
++   'nka/no-selective-import-of-libraries': ['error', ['shared', 'src/components/icons']],
++ },
+};
+```
+
+### Check dictionaries
+
+```diff
+module.exports = {
+  parserOptions: { project: './tsconfig.json' },
++ extends: ['plugin:nka/recommended'],
++ overrides: [
++   {
++     files: ['src/i18n/dictionaries/**/*.ts'],
++     rules: {
++       'nka/no-incorrect-paths-in-dictionary-keys': 'error',
++       'nka/no-unused-dictionary-keys': 'error',
++     },
++   },
++ ],
+};
+```
+
 ## License
 
 **MIT**
