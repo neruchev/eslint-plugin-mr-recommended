@@ -1,15 +1,12 @@
-const { readdirSync } = require('fs');
-const { basename, join } = require('path');
-
-const getFiles = (dir) =>
-  Object.fromEntries(
-    readdirSync(join(__dirname, dir)).map((file) => [
-      basename(file, '.js'),
-      require(dir + file),
-    ])
-  );
-
 module.exports = {
-  rules: getFiles('./rules/'),
-  configs: getFiles('./configs/'),
+  rules: {
+    "no-full-import-of-libraries": require("./rules/no-full-import-of-libraries"),
+    "no-incorrect-paths-in-dictionary-keys": require("./rules/no-incorrect-paths-in-dictionary-keys"),
+    "no-index-imports": require("./rules/no-index-imports"),
+    "no-selective-import-of-libraries": require("./rules/no-selective-import-of-libraries"),
+    "no-unused-dictionary-keys": require("./rules/no-unused-dictionary-keys"),
+  },
+  configs: {
+    recommended: require("./configs/recommended"),
+  },
 };
