@@ -9,17 +9,22 @@ module.exports = {
       description: 'Disallow incorrect paths in dictionary keys',
     },
   },
-  create({ filename, report }) {
+  create({ filename, report, options }) {
     if (!isInitialized()) {
       initialize(filename);
     }
+
+    const excludes = options[0] || [];
 
     return {
       VariableDeclarator(node) {
         node.init.properties.forEach((property) => {
           const dictionaryKey = property.key?.value;
 
-          if (!dictionaryKey || !dictionaryKey.startsWith('components.')) {
+          if (
+            !dictionaryKey ||
+            excludes.some((excluded) => dictionaryKey.startsWith(excluded))
+          ) {
             return;
           }
 
