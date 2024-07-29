@@ -5,13 +5,14 @@ const {
   isObjectLiteralElement,
 } = require('typescript');
 const { readFileSync, readdirSync } = require('fs');
-const { extname, resolve, join, dirname } = require('path');
+const { extname, resolve, join, dirname, sep } = require('path');
 
 const cache = {
   dictionariesKeys: [],
   usedKeys: {},
 };
 const extensions = ['.ts', '.js', '.tsx', '.jsx'];
+const regExp = new RegExp(sep === '/' ? /\/index.*|\..*$/ : /\\index.*|\..*$/);
 
 const findDictionaryLiterals = (parsed) => {
   if (!isObjectLiteralElement(parsed)) {
@@ -35,9 +36,9 @@ const getFileText = (fileName) => {
 
 const fileNameToKey = (fileName, root) =>
   fileName
-    .replace(root + '/', '')
-    .replace(/\/index.*|\..*$/, '')
-    .replaceAll('/', '.') + '.';
+    .replace(root + sep, '')
+    .replace(regExp, '')
+    .replaceAll(sep, '.') + '.';
 
 const handleFile = (fileName, roots, isProject) => {
   const extension = extname(fileName).toLowerCase();
